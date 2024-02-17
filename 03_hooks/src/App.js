@@ -1,4 +1,5 @@
 import React,{useState} from "react";
+import './App.css'
 
 
 const App = () => {
@@ -19,26 +20,33 @@ const App = () => {
     const [counter,setCounter] = useState(5);
 
     const addValue = () =>{
-        setCounter(counter+1)
+        if(counter<20){
+            setCounter(counter+1)
+        }
         console.log('clicked',counter);
     }
 
     const removeValue = () =>{
-        setCounter(counter-1);
+        if(counter>0){
+            setCounter(counter-1);
+        }
         console.log('clicked',counter);
     }
 
     return(
         <>
-            <h1>Creating Counter App</h1>
+        <div>
+        <h1>Creating Counter App</h1>
             <h2>Counter value : {counter}</h2>
             <button
             onClick={addValue}
-            >Add value : {counter}</button> <br/><br/>
+            >Add value : {counter}</button>
             <button
             onClick={removeValue}
             >Remove value :{counter}</button>
             <p>Footer : {counter}</p>
+        </div>
+            
         </>
     )
 }
